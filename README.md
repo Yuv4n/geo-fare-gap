@@ -1,8 +1,10 @@
 # Geo Fare Gap
 
-A Next.js application for comparing flight fares returned from different browsing countries. It sends the same route and date to browser agents, converts readable prices to GBP, and streams rows into a ranked table with CSV export. Awarded an honourable mention (4th place) at a hackathon.
+A Next.js app that compares flight fares shown to different browsing countries. It sends one route and date to browser agents, converts prices to GBP and streams a ranked table with CSV export. Awarded an honourable mention (4th place) at a hackathon.
 
-The TypeScript API creates one TinyFish job per selected site/country pair and limits concurrent jobs. React receives progress over server-sent events and displays live browser previews. Price parsing and currency conversion are separate from the agent orchestration.
+- **Orchestration:** TypeScript API starts one TinyFish browser job per site/country pair with a concurrency limit; React shows progress over server-sent events with live previews.
+- **Separation:** price parsing and currency conversion are independent of the agent code.
+- **Coverage:** nine site URL builders and seven countries.
 
 ```mermaid
 flowchart LR
@@ -14,23 +16,16 @@ flowchart LR
     Rows -->|Server-sent events| Table[Ranked table and CSV]
 ```
 
-## Run locally
+## Run
 
-Node.js 20+ and npm. From this folder:
-
-```sh
-npm ci
-cp .env.example .env.local
-npm run dev
-```
-
-Set `TINYFISH_API_KEY` in `.env.local`, then open `http://localhost:3000`. `TINYFISH_CONCURRENCY` defaults to 2 and accepts 1–10. Each selected pair starts an agent job; start with a small selection.
+Node.js 20+. Set `TINYFISH_API_KEY` in `.env.local`; `TINYFISH_CONCURRENCY` defaults to 2 (1–10).
 
 ```sh
-npm test
-npm run lint
+npm ci && cp .env.example .env.local
+npm run dev     # http://localhost:3000
+npm test && npm run lint
 ```
 
-Nine site URL builders and seven countries are configured. Successful coverage of all combinations has not been verified. Agents may return different itineraries, so the table cannot establish a price difference for the same seat or prove its cause. There is no booking or itinerary-matching step.
+## Limits
 
-[Architecture, validation limits and recorded screenshots](docs/implementation.md)
+Agents can return different itineraries, so the table cannot prove a like-for-like price difference or its cause. There is no itinerary matching or booking, and not every site/country pair has been verified. See [docs/implementation.md](docs/implementation.md).
