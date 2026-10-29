@@ -18,7 +18,7 @@ flowchart LR
 
 ## Run
 
-Node.js 20+. Set `TINYFISH_API_KEY` in `.env.local`; `TINYFISH_CONCURRENCY` defaults to 2 (1–10).
+Node.js 20+. Set `TINYFISH_API_KEY` in `.env.local`; `TINYFISH_CONCURRENCY` defaults to 2 (1–10). Each selected pair starts an agent job, so start with a small selection.
 
 ```sh
 npm ci && cp .env.example .env.local
@@ -28,4 +28,4 @@ npm test && npm run lint
 
 ## Limits
 
-Agents can return different itineraries, so the table cannot prove a like-for-like price difference or its cause. There is no itinerary matching or booking, and not every site/country pair has been verified. See [docs/implementation.md](docs/implementation.md).
+Agents can return different itineraries, so the table cannot prove a like-for-like price difference or its cause. There is no itinerary matching or booking, and not every site/country pair has been verified. Architecture, validation limits and recorded screenshots: [docs/implementation.md](docs/implementation.md).
