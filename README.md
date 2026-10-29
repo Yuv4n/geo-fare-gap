@@ -29,3 +29,5 @@ npm test && npm run lint
 ## Limits
 
 Agents can return different itineraries, so the table cannot prove a like-for-like price difference or its cause. There is no itinerary matching or booking, and not every site/country pair has been verified. Architecture, validation limits and recorded screenshots: [docs/implementation.md](docs/implementation.md).
+
+[MIT licence](LICENSE)
