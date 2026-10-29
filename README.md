@@ -1,6 +1,6 @@
 # Geo Fare Gap
 
-A Next.js application for comparing flight fares returned from different browsing countries. It sends the same route and date to browser agents, converts readable prices to GBP, and streams rows into a ranked table with CSV export.
+A Next.js application for comparing flight fares returned from different browsing countries. It sends the same route and date to browser agents, converts readable prices to GBP, and streams rows into a ranked table with CSV export. Awarded an honourable mention (4th place) at a hackathon.
 
 The TypeScript API creates one TinyFish job per selected site/country pair and limits concurrent jobs. React receives progress over server-sent events and displays live browser previews. Price parsing and currency conversion are separate from the agent orchestration.
 
