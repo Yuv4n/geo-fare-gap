@@ -8,7 +8,7 @@ The configured sites are Google Flights, Kayak, Skyscanner, Momondo, Cheapflight
 
 An agent is prompted to return the cheapest one-way economy fare for one adult without changing site region settings. The code parses prices and currency fields; it does not validate a shared flight number, departure time or baggage allowance. A completed agent can still return no usable fare. Differences may reflect itineraries, availability or extraction errors as well as country settings.
 
-`src/__tests__/normalize.test.ts` covers parsing and ranking. All 11 existing tests passed during this review; lint and TypeScript checks also passed. The tests do not exercise live agents, streaming disconnects or every site/country pair. No authenticated live comparison was run in this review.
+`src/__tests__/normalize.test.ts` covers parsing and ranking. It has 11 tests, and the project is set up for lint and TypeScript checks. The tests do not exercise live agents, streaming disconnects or every site/country pair, and no authenticated live comparison has been run.
 
 ## Recorded screenshots
 
